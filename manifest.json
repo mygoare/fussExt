@@ -1,0 +1,15 @@
+{
+  "name": "eleme",
+  "manifest_version": 2,
+  "icons": {"128": "icon.jpeg"},
+  "version": "1.0",
+  "description": "eleme upload pic",
+  "permissions": ["tabs","http://5p.ele.me/tavern/","clipboardRead","clipboardWrite","http://u.com/*", "https://ajax.googleapis.com/*", "http://malsup.github.com/*"],
+  "browser_action": {
+    "default_title": "eleme",
+    "default_icon": "icon.jpeg"
+  },
+  "background": {
+    "scripts": ["bg.js"]
+  }
+}
