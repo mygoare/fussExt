@@ -31,7 +31,7 @@
           console.log('suc');
           if(response.status){
 
-            delete formData;
+            delete formData; // delete formData
             var img_url = 'http://u.com/test/upload/'+response.file_name;
             console.log(img_url);
 
@@ -53,7 +53,7 @@
 
     function copy(val){
       var clipboard = $("#text").val(val).select();
-      document.execCommand('copy',false,null);
+      document.execCommand('cut');
       clipboard.val('');
     }
   });
