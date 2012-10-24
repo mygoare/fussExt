@@ -13,12 +13,12 @@ $(function(){
 
         copy(img_url);
 
-        chrome.tabs.getCurrent(function(tab){
-          chrome.tabs.remove(tab.id);
-        });
+        //chrome.tabs.getCurrent(function(tab){
+          //chrome.tabs.remove(tab.id);
+        //});
 
-        document.execCommand('paste');
-        console.log(1);
+        //document.execCommand('paste');
+        //console.log(1);
 
         }
       }

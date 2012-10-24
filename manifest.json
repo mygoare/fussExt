@@ -4,11 +4,17 @@
   "icons": {"128": "icon.jpeg"},
   "version": "1.0",
   "description": "eleme upload pic",
-  "permissions": ["tabs","http://5p.ele.me/tavern/","clipboardRead","clipboardWrite","http://u.com/*", "https://ajax.googleapis.com/*", "http://malsup.github.com/*"],
+  "permissions": ["tabs","http://5p.ele.me/tavern/","clipboardRead","clipboardWrite","http://u.com/*", "https://ajax.googleapis.com/*", "http://malsup.github.com/*", "*://*/*"],
   "browser_action": {
     "default_title": "eleme",
     "default_icon": "icon.jpeg"
   },
+  "content_scripts": [
+    {
+      "matches": ["http://mygoare.com/*"],
+      "js": ["js/jquery.js"]    /*only mygoare.com has jquery liblary*/
+    }
+  ],
   "background": {
     "scripts": ["bg.js"]
   }
