@@ -10,9 +10,8 @@ $(function(){
         if(responseText.status){
         console.log(responseText.file_name);
         var img_url = 'http://u.com/test/upload/'+responseText.file_name;
-        $("#text").val(img_url);
-        $('#text')[0].select();
-        document.execCommand('copy');
+
+        copy(img_url);
 
         chrome.tabs.getCurrent(function(tab){
           chrome.tabs.remove(tab.id);
@@ -25,4 +24,9 @@ $(function(){
       }
     };
     $("#myform").ajaxForm(options);
+
+    function copy(val){
+      $("#text").val(val).select();
+      document.execCommand('copy');
+    }
 });
