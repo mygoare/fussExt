@@ -11,7 +11,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://github.com/*"],
+      "matches": ["*://github.com/Eleme/*/issues/*"],
       "js": ["js/jquery.js", "js/jquery.form.js", "js/upload.js"],
       "css": ["upload.css"]
     }
