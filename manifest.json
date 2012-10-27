@@ -4,18 +4,15 @@
   "icons": {"128": "icon.jpeg"},
   "version": "1.0",
   "description": "eleme upload pic",
-  "permissions": ["tabs","clipboardRead","clipboardWrite","*://*/*"],
+  "permissions": ["tabs","clipboardRead","clipboardWrite","http://u.com/*"],
   "browser_action": {
     "default_title": "eleme",
     "default_icon": "icon.jpeg"
   },
   "content_scripts": [
     {
-      "matches": ["http://mygoare.com/*"],
-      "js": ["js/jquery.js"]    /*only mygoare.com has jquery liblary*/
+      "matches": ["http://www.baidu.com/"],
+      "js": ["js/jquery.js", "js/jquery.form.js", "js/upload.js"]
     }
-  ],
-  "background": {
-    "scripts": ["bg.js"]
-  }
+  ]
 }
