@@ -1,5 +1,5 @@
 $(function(){
-    var html = '<div id="eleme_pic_upload"><form id="myform" enctype="multipart/form-data"> <input id="eleme_pic_upload_file" type="file" name="file" /> <input id="eleme_pic_upload_button" type="submit" value="上传" /> </form> <input type="text" id="text" /></div>';
+    var html = '<div id="eleme_pic_upload"><form id="myform" enctype="multipart/form-data"> <input id="eleme_pic_upload_file" type="file" name="file" /> <input id="eleme_pic_upload_button" type="submit" value="上传" /> </form> <input type="text" id="eleme_pic_text" /></div>';
 
     $('body').before(html);
 
@@ -9,27 +9,27 @@ $(function(){
       type: 'post',
       dataType: 'json',
       beforeSubmit: function(){
-        $('#text').after('<p id="uploading">上传中...</p>');
+        $('#eleme_pic_text').after('<span id="eleme_pic_uploading">上传中...</span>');
       },
       success: function(responseText,statusText,xhr){
         if(responseText.status){
         //console.log(responseText.file_name);
-        var img_url = 'http://u.com/test/upload/'+responseText.file_name;
-        $("#text").val(img_url);
-        $('#text')[0].select();
-        document.execCommand('copy');
+        var img_url = '!['+responseText.file_original_name+'](http://u.com/test/upload/'+responseText.file_name+')';
+        $("#eleme_pic_text").val(img_url).select();
+        document.execCommand('copy'); // not working, may because not in background page
         console.log(img_url);
-        $("#uploading").remove();
-
-        //chrome.tabs.getCurrent(function(tab){
-          //chrome.tabs.remove(tab.id);
-        //});
-
-        //document.execCommand('paste');
-        //console.log(1);
+        $("#eleme_pic_uploading").remove();
 
         }
       }
     };
     $("#myform").ajaxForm(options);
+
+    $('#eleme_pic_upload').hover(function(){
+      $(this).animate({'left':'10px'});
+    },function(){
+      $('#eleme_pic_upload_button').click(function(){
+        $('#eleme_pic_upload').animate({'left':'-150px'});
+      });
+    });
 });

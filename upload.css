@@ -1,0 +1,9 @@
+#eleme_pic_upload {
+  font-size:12px; position:fixed; left:-150px; top:100px; width:250px; height:50px; background-color:#eee; border:1px solid #ccc; z-index:10000; padding:5px;
+}
+#eleme_pic_text {
+  width:200px; height:20px; margin-top:5px; font-size:13px;
+}
+#eleme_pic_uploading {
+  font-size:12px;
+}
