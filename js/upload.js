@@ -19,7 +19,9 @@ $(function(){
         document.execCommand('copy'); // not working, may because not in background page
         console.log(img_url);
         $("#eleme_pic_uploading").remove();
-        $('textarea').val($('textarea').val()+img_url); // only one textarea
+        if($('textarea').size() == 1){
+          $('textarea').val($('textarea').val()+img_url); // insert only when new ,edit and reply not supported
+        }
 
         }
       }
