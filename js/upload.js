@@ -19,6 +19,7 @@ $(function(){
         document.execCommand('copy'); // not working, may because not in background page
         console.log(img_url);
         $("#eleme_pic_uploading").remove();
+        $('#issue_body').val($('#issue_body').val()+img_url);
 
         }
       }
