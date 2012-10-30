@@ -3,26 +3,26 @@ $(function(){
 
     $('body').before(html);
 
+    var host = 'http://5p.ele.me/tavern/upload.php';
+
 
     var options = {
-      url: 'http://u.com/test/upload.php',
+      url: host,
       type: 'post',
       dataType: 'json',
       beforeSubmit: function(){
         $('#eleme_pic_text').after('<span id="eleme_pic_uploading">上传中...</span>');
       },
-      success: function(responseText,statusText,xhr){
-        if(responseText.status){
-        //console.log(responseText.file_name);
-        var img_url = '!['+responseText.file_original_name+'](http://u.com/test/upload/'+responseText.file_name+')';
-        $("#eleme_pic_text").val(img_url).select();
-        document.execCommand('copy'); // not working, may because not in background page
-        console.log(img_url);
-        $("#eleme_pic_uploading").remove();
-        if($('textarea').size() == 1){
-          $('textarea').val($('textarea').val()+img_url); // insert only when new ,edit and reply not supported
-        }
-
+      success: function(data,statusText,xhr){
+        if(data.status){
+          var img_url = '!['+data.file_original_name+']('+data.file_address+')';
+          $("#eleme_pic_text").val(img_url).select();
+          // copy to clipboard , but not working, may because not in background page
+          //document.execCommand('copy');
+          $("#eleme_pic_uploading").remove();
+          if($('textarea').size() == 1){
+            $('textarea').val($('textarea').val()+img_url); // insert only when new ,edit and reply not supported because of mul of textarea blocks
+          }
         }
       }
     };

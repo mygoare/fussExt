@@ -2,9 +2,9 @@
   "name": "eleme",
   "manifest_version": 2,
   "icons": {"128": "icon.jpeg"},
-  "version": "1.0",
+  "version": "3.0",
   "description": "eleme upload pic",
-  "permissions": ["tabs","clipboardRead","clipboardWrite","*://u.com/*"],
+  "permissions": ["http://5p.ele.me/tavern/*"],
   "browser_action": {
     "default_title": "eleme",
     "default_icon": "icon.jpeg"
@@ -13,7 +13,7 @@
     {
       "matches": ["*://github.com/Eleme/*/issues/*"],
       "js": ["js/jquery.js", "js/jquery.form.js", "js/upload.js"],
-      "css": ["upload.css"]
+      "css": ["css/upload.css"]
     }
   ]
 }
