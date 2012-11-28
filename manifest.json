@@ -4,7 +4,7 @@
   "icons": {"128": "icon.jpeg"},
   "version": "3.0",
   "description": "eleme upload pic",
-  "permissions": ["http://5p.ele.me/tavern/*"],
+  "permissions": ["http://5p.ele.me/tavern/index_json.php"],
   "browser_action": {
     "default_title": "eleme",
     "default_icon": "icon.jpeg"
