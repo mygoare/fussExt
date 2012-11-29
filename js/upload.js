@@ -4,7 +4,9 @@ $(function(){
                    '<input id="eleme_pic_upload_file" type="file" name="file" />'+
                    '<input id="eleme_pic_upload_button" type="submit" value="上传" />'+
                  '</form>'+ 
-               '<input type="text" id="eleme_pic_text" /></div>';
+                 '<input type="text" id="eleme_pic_text" />'+
+                 '<span id="eleme_pic_info"></span>'+
+               '</div>';
 
     $('body').before(html);
 
@@ -15,7 +17,7 @@ $(function(){
       type: 'post',
       dataType: 'json',
       beforeSubmit: function(){
-        $('#eleme_pic_text').after('<span id="eleme_pic_uploading">上传中...</span>');
+        $('#eleme_pic_info').html('上传中...');
       },
       success: function(data,statusText,xhr){
         if(data.status){
@@ -23,16 +25,16 @@ $(function(){
           $("#eleme_pic_text").val(img_url).select();
           // copy to clipboard , but not working, may because not in background page
           //document.execCommand('copy');
-          $("#eleme_pic_uploading").remove();
+          $("#eleme_pic_info").html('');
           $('textarea:last').val($('textarea:last').val()+img_url);
         }else {
-          $("#eleme_pic_uploading").remove();
-          $("#eleme_pic_text").after('<span style="color:red;">error!</span>');
+          $("#eleme_pic_info").html('<span style="color:red;">error!</span>');
         }
       }
     };
     $("#myform").ajaxForm(options);
 
+    // upload block movement
     $('#eleme_pic_upload').hover(function(){
       $(this).animate({'left':'10px'});
     },function(){
